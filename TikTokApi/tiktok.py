@@ -314,6 +314,10 @@ class TikTokApi:
         if kwargs.get("session_index") is not None:
             i = kwargs["session_index"]
         else:
+            try:
+                self.num_sessions
+            except:
+                self.num_sessions = 5
             i = random.randint(0, self.num_sessions - 1)
         return i, self.sessions[i]
 
